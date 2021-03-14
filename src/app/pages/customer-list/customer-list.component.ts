@@ -20,6 +20,5 @@ export class CustomerListComponent implements OnInit {
 
   onDelete(customer: Customer): void {
     this.customerService.remove(customer);
-
   }
 }

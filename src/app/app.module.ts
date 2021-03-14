@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,6 +10,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { ProductsComponent } from './pages/products/products.component';
 import { ProductListComponent } from './common/product-list/product-list.component';
 import { CustomerListComponent } from './pages/customer-list/customer-list.component';
+import { EditCustomerComponent } from './pages/edit-customer/edit-customer.component';
 
 @NgModule({
   declarations: [
@@ -17,12 +19,14 @@ import { CustomerListComponent } from './pages/customer-list/customer-list.compo
     HomeComponent,
     ProductsComponent,
     ProductListComponent,
-    CustomerListComponent
+    CustomerListComponent,
+    EditCustomerComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
