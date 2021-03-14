@@ -32,7 +32,7 @@ export class CustomerService {
   }
 
   create(customer: Customer): void {
-    this.http.post<Customer>(this.apiUrl, customer).subscribe(
+    this.http.post<Event>(this.apiUrl, customer).subscribe(
       () => this.getAll()
     );
   }

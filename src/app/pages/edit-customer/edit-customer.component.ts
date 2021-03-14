@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { Customer } from 'src/app/model/customer';
 import { CustomerService } from 'src/app/service/customer.service';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-edit-customer',
@@ -13,7 +14,9 @@ import { CustomerService } from 'src/app/service/customer.service';
 export class EditCustomerComponent implements OnInit {
 
   updating : boolean = false;
-  customer$: Observable<Customer | undefined> = of(new Customer() );
+  customer$: Observable<Customer> = this.activatedRoute.params.pipe(
+    switchMap(params => this.customerService.get(params.id))
+  );
 
   constructor(
     private customerService: CustomerService,
@@ -21,27 +24,20 @@ export class EditCustomerComponent implements OnInit {
     private router: Router,
     ) { }
 
-   ngOnInit(): void {
-    this.customerService.getAll();
-    this.activatedRoute.params.subscribe(
-      params => {
-        console.log(params.id);
-        if (params.id == 0) {
-          this.customer$ = of( new Customer() );
-        } else {
-          this.customer$ = this.customerService.get(params.id);
-        }
-      })
+    ngOnInit(): void {
+    }
+
+   onUpdate(form: NgForm, customer: Customer): void {
+
+    if (customer.id === 0) {
+      this.customerService.create(customer);
+      this.router.navigate(['customers']);
+    } else {
+      this.customerService.update(customer).subscribe(
+        () => this.router.navigate(['customers'])
+      );
+    }
   }
-
-  onUpdate(form: NgForm, customer: Customer): void {
-
-    this.updating = true;
-
-    this.customerService.update(customer).subscribe(
-      () => this.router.navigate(['customers'])
-    )}
-
 }
 
 

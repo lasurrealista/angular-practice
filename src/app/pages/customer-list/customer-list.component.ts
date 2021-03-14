@@ -21,4 +21,15 @@ export class CustomerListComponent implements OnInit {
   onDelete(customer: Customer): void {
     this.customerService.remove(customer);
   }
+
+  customer: Customer = new Customer();
+
+  onUpdate(customer: Customer): void {
+
+    if (customer.id === 0) {
+      this.customerService.create(customer);
+    }
+
+    this.customerService.update(customer);
+  }
 }
