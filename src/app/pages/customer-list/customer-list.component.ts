@@ -32,4 +32,10 @@ export class CustomerListComponent implements OnInit {
 
     this.customerService.update(customer);
   }
+
+  columnKey: string = '';
+
+  onColumnSelect(key: string): void {
+    this.columnKey = key;
+  }
 }

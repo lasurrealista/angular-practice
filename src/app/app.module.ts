@@ -11,6 +11,7 @@ import { ProductsComponent } from './pages/products/products.component';
 import { ProductListComponent } from './common/product-list/product-list.component';
 import { CustomerListComponent } from './pages/customer-list/customer-list.component';
 import { EditCustomerComponent } from './pages/edit-customer/edit-customer.component';
+import { SorterPipe } from './pipe/sorter.pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { EditCustomerComponent } from './pages/edit-customer/edit-customer.compo
     ProductsComponent,
     ProductListComponent,
     CustomerListComponent,
-    EditCustomerComponent
+    EditCustomerComponent,
+    SorterPipe
   ],
   imports: [
     BrowserModule,
