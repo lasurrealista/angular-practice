@@ -13,6 +13,7 @@ import { CustomerListComponent } from './pages/customer-list/customer-list.compo
 import { EditCustomerComponent } from './pages/edit-customer/edit-customer.component';
 import { SorterPipe } from './pipe/sorter.pipe';
 import { Sorter2Pipe } from './pipe/sorter2.pipe';
+import { FilterPipe } from './pipe/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { Sorter2Pipe } from './pipe/sorter2.pipe';
     CustomerListComponent,
     EditCustomerComponent,
     SorterPipe,
-    Sorter2Pipe
+    Sorter2Pipe,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

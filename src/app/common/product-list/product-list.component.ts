@@ -28,4 +28,17 @@ export class ProductListComponent implements OnInit {
     this.columnKey = key;
     this.sortDir = this.sortDir * (-1);
   }
+
+  filterKey: string = '';
+  filterKeys: string[] = Object.keys(new Product());
+
+  phrase: string = '';
+
+  searchEvent(event: Event): void {
+    this.phrase = (event.target as HTMLInputElement).value;
+  }
+
+  productsProperties: {count: number} = {
+    count: 0,
+  };
 }
