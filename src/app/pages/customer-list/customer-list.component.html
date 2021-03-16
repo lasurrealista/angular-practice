@@ -1,5 +1,14 @@
 <div class="container-fluid p-4">
 
+  <div class="col-12 mt-4">
+    <div class="container d-flex justify-content-center">
+      <form class="form-inline my-2 my-lg-0 py-2 d-flex justify-content-center">
+        <input (keyup)="searchEvent($event)" class="search-input form-control mr-sm-2" type="text" placeholder="Search">
+        <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+
   <div class="form-group d-flex justify-content-center mt-4">
     <button [routerLink]="['/customers/0']" class="btn btn-success">Add new
       customer</button>
@@ -20,7 +29,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let customer of customers$ | async | sorter:columnKey">
+      <tr *ngFor="let customer of customers$ | async | filter2:phrase | sorter:columnKey">
         <td>{{ customer.id }}</td>
         <td>{{ customer.firstName }}</td>
         <td>{{ customer.lastName }}</td>
