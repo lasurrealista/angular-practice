@@ -4,17 +4,35 @@
   <table class="table table-striped table-dark table-responsive-sm mt-4">
     <thead>
       <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Price</th>
-        <th>Featured</th>
-        <th>Active</th>
+        <th (click)="onColumnSelect('id')">ID
+          <i *ngIf="sortDir === 1" class="fa fa-sort-numeric-asc"></i>
+          <i *ngIf="sortDir === -1" class="fa fa-sort-numeric-desc"></i>
+        </th>
+        <th (click)="onColumnSelect('name')">Name
+          <i *ngIf="sortDir === 1" class="fa fa-sort-alpha-asc"></i>
+          <i *ngIf="sortDir === -1" class="fa fa-sort-alpha-desc"></i>
+        </th>
+        <th (click)="onColumnSelect('description')">Description
+          <i *ngIf="sortDir === 1" class="fa fa-sort-alpha-asc"></i>
+          <i *ngIf="sortDir === -1" class="fa fa-sort-alpha-desc"></i>
+        </th>
+        <th (click)="onColumnSelect('price')">Price
+          <i *ngIf="sortDir === 1" class="fa fa-sort-numeric-asc"></i>
+          <i *ngIf="sortDir === -1" class="fa fa-sort-numeric-desc"></i>
+        </th>
+        <th (click)="onColumnSelect('featured')">Featured
+          <i *ngIf="sortDir === 1" class="fa fa-sort-alpha-asc"></i>
+          <i *ngIf="sortDir === -1" class="fa fa-sort-alpha-desc"></i>
+        </th>
+        <th (click)="onColumnSelect('active')">Active
+          <i *ngIf="sortDir === 1" class="fa fa-sort-alpha-asc"></i>
+          <i *ngIf="sortDir === -1" class="fa fa-sort-alpha-desc"></i>
+        </th>
         <th>Actions</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let product of products">
+      <tr *ngFor="let product of products | sorter2:columnKey:sortDir">
         <td>{{ product.id }}</td>
         <td>{{ product.name }}</td>
         <td>{{ product.description }}</td>

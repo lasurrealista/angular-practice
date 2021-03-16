@@ -12,6 +12,7 @@ import { ProductListComponent } from './common/product-list/product-list.compone
 import { CustomerListComponent } from './pages/customer-list/customer-list.component';
 import { EditCustomerComponent } from './pages/edit-customer/edit-customer.component';
 import { SorterPipe } from './pipe/sorter.pipe';
+import { Sorter2Pipe } from './pipe/sorter2.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { SorterPipe } from './pipe/sorter.pipe';
     ProductListComponent,
     CustomerListComponent,
     EditCustomerComponent,
-    SorterPipe
+    SorterPipe,
+    Sorter2Pipe
   ],
   imports: [
     BrowserModule,
